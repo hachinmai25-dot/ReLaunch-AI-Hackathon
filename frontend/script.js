@@ -1,54 +1,40 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: white;
-    margin: 0;
-    padding: 0;
-}
+function analyzeResume() {
 
-.container {
-    max-width: 600px;
-    margin: 60px auto;
-    text-align: center;
-}
+    const resultSection = document.getElementById("resultSection");
+    const scoreElement = document.getElementById("score");
+    const gapsElement = document.getElementById("gaps");
+    const roadmapElement = document.getElementById("roadmap");
 
-h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
+    resultSection.classList.remove("hidden");
 
-.subtitle {
-    color: #94a3b8;
-    margin-bottom: 40px;
-}
+    const readinessScore = 72;
 
-.upload-box {
-    background: #1e293b;
-    padding: 30px;
-    border-radius: 12px;
-}
+    const skillGaps = [
+        "Cloud Deployment (AWS)",
+        "Docker & Kubernetes",
+        "CI/CD Pipelines"
+    ];
 
-button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    background: #2563eb;
-    color: white;
-    cursor: pointer;
-}
+    const learningRoadmap = [
+        "AWS Cloud Practitioner Certification",
+        "Docker & Kubernetes Fundamentals",
+        "DevOps CI/CD with GitHub Actions"
+    ];
 
-button:hover {
-    background: #1d4ed8;
-}
+    scoreElement.innerText = readinessScore;
 
-.hidden {
-    display: none;
-}
+    gapsElement.innerHTML = "";
+    roadmapElement.innerHTML = "";
 
-#resultSection {
-    margin-top: 40px;
-    background: #1e293b;
-    padding: 20px;
-    border-radius: 12px;
+    skillGaps.forEach(gap => {
+        const li = document.createElement("li");
+        li.textContent = gap;
+        gapsElement.appendChild(li);
+    });
+
+    learningRoadmap.forEach(course => {
+        const li = document.createElement("li");
+        li.textContent = course;
+        roadmapElement.appendChild(li);
+    });
 }
