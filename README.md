@@ -13,3 +13,12 @@ Personalized Tech Upskilling Roadmap
 Enterprise Diversity Dashboard
 Hackathon
 ANZ Diversity Hackathon – Women in AI/ML
+
+## Tech Stack (Planned)
+
+- Frontend: React / Next.js
+- Backend: Node.js / Express
+- Database: MongoDB / PostgreSQL
+- AI Layer: OpenAI API / Python ML models
+- Cloud: AWS / Azure
+- Version Control: GitHub
