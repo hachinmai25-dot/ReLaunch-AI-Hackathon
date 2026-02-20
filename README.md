@@ -46,3 +46,12 @@ ReLaunchAI follows a B2B SaaS model:
 - Skill gap prediction using ML.
 - Corporate mentorship marketplace.
 - Expansion to global markets.
+
+## Why Now?
+
+- Rapid AI transformation is reshaping tech roles.
+- Companies face increasing talent shortages.
+- Diversity hiring is a strategic priority for enterprises.
+- Thousands of experienced women are ready to return but lack structured re-entry pathways.
+
+ReLaunchAI bridges this gap at the right time.
