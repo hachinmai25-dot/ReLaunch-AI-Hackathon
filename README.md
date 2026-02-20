@@ -31,3 +31,18 @@ ReLaunchAI follows a B2B SaaS model:
 - Companies pay per candidate assessment or monthly subscription plans.
 - Premium analytics dashboard for HR teams.
 - Corporate diversity hiring partnerships.
+
+## Impact
+
+- Enables skilled women to re-enter the tech workforce confidently.
+- Helps enterprises reduce talent shortages.
+- Promotes diversity and inclusion in tech.
+- Converts career breaks into strategic comebacks.
+
+## Future Scope
+
+- AI-powered personalized learning paths.
+- Integration with LinkedIn and HR systems.
+- Skill gap prediction using ML.
+- Corporate mentorship marketplace.
+- Expansion to global markets.
