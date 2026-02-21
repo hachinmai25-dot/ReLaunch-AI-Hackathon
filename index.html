@@ -48,32 +48,42 @@
         <h1>ReLaunchAI</h1>
         <p>AI-Powered Workforce Re-entry Platform</p>
 
-        <input type="file" id="resume">
+        <input type="file" id="resumeUpload">
         <br>
         <button onclick="analyze()">Analyze Resume</button>
 
-        <div class="result" id="result">
-            <h3>Readiness Score: 78%</h3>
-            <p><strong>Skill Gaps:</strong></p>
-            <ul>
-                <li>Cloud Deployment (AWS)</li>
-                <li>Docker & Kubernetes</li>
-                <li>CI/CD Pipelines</li>
-            </ul>
-
-            <p><strong>Recommended Learning Path:</strong></p>
-            <ul>
-                <li>AWS Cloud Practitioner</li>
-                <li>DevOps Fundamentals</li>
-                <li>GitHub Actions CI/CD</li>
-            </ul>
+        <div class="result" id="result" style="display:none;">
+    <pre id="resultText"></pre>
         </div>
-    </div>
+
 
     <script>
-        function analyze() {
-            document.getElementById("result").style.display = "block";
-        }
+        function analyzeResume() {
+    const fileInput = document.getElementById("resumeUpload");
+    const resultBox = document.getElementById("result");
+    const resultText = document.getElementById("resultText");
+
+    if (!fileInput.files.length) {
+        alert("Please upload a resume first.");
+        return;
+    }
+
+    const fileName = fileInput.files[0].name.toLowerCase();
+
+    let analysisResult = "";
+
+    if (fileName.includes("python") || fileName.includes("backend")) {
+        analysisResult = "Recommended Track: Backend Developer\n\nSkill Gap: DevOps, Docker, Advanced AWS\n\nSuggested Certification: AWS Developer Associate";
+    } 
+    else if (fileName.includes("data") || fileName.includes("sql")) {
+        analysisResult = "Recommended Track: Data Analyst\n\nSkill Gap: Machine Learning, Power BI, Advanced SQL\n\nSuggested Certification: AWS Data Analytics Specialty";
+    } 
+    else if (fileName.includes("react") || fileName.includes("frontend")) {
+        analysisResult = "Recommended Track: Frontend Developer\n\nSkill Gap: Performance Optimization, TypeScript, AWS Amplify\n\nSuggested Certification: AWS Cloud Practitioner";
+    } 
+    else {
+        analysisResult = "Recommended Track: Cloud Support Engineer\n\nSkill Gap: Linux, Networking, AWS Core Services\n\nSuggested Certification: AWS Solutions Architect Associate";
+    }
     </script>
 
 </body>
