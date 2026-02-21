@@ -2,34 +2,79 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>ReLaunchAI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <title>ReLaunchAI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: #1e293b;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2563eb;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1d4ed8;
+        }
+
+        .result {
+            margin-top: 20px;
+            display: none;
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
 
     <div class="container">
         <h1>ReLaunchAI</h1>
-        <p class="subtitle">AI-Powered Workforce Re-entry Platform</p>
+        <p>AI-Powered Workforce Re-entry Platform</p>
 
-        <div class="upload-box">
-            <h2>Upload Resume</h2>
-            <input type="file" id="resumeInput" accept=".pdf,.doc,.docx">
-            <button onclick="analyzeResume()">Analyze Resume</button>
-        </div>
+        <input type="file" id="resume">
+        <br>
+        <button onclick="analyze()">Analyze Resume</button>
 
-        <div id="resultSection" class="hidden">
-            <h2>Skill Gap Analysis Result</h2>
-            <p><strong>Readiness Score:</strong> <span id="score"></span>%</p>
+        <div class="result" id="result">
+            <h3>Readiness Score: 78%</h3>
+            <p><strong>Skill Gaps:</strong></p>
+            <ul>
+                <li>Cloud Deployment (AWS)</li>
+                <li>Docker & Kubernetes</li>
+                <li>CI/CD Pipelines</li>
+            </ul>
 
-            <h3>Identified Skill Gaps:</h3>
-            <ul id="gaps"></ul>
-
-            <h3>Recommended Learning Path:</h3>
-            <ul id="roadmap"></ul>
+            <p><strong>Recommended Learning Path:</strong></p>
+            <ul>
+                <li>AWS Cloud Practitioner</li>
+                <li>DevOps Fundamentals</li>
+                <li>GitHub Actions CI/CD</li>
+            </ul>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function analyze() {
+            document.getElementById("result").style.display = "block";
+        }
+    </script>
+
 </body>
 </html>
