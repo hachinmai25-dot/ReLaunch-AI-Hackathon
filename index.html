@@ -67,59 +67,118 @@
         <pre id="resultText"></pre>
     </div>
 </div>
-
 <script>
 function analyzeResume() {
+
+    // Get elements from page
     const fileInput = document.getElementById("resumeUpload");
     const resultBox = document.getElementById("result");
     const resultText = document.getElementById("resultText");
     const loading = document.getElementById("loading");
 
+    // Check if user uploaded a file
     if (!fileInput.files.length) {
         alert("Please upload a resume first.");
         return;
     }
 
+    // Get uploaded file name
     const fileName = fileInput.files[0].name.toLowerCase();
 
+    // Show loading text
     loading.style.display = "block";
+
+    // Hide old result
     resultBox.style.display = "none";
 
+    // Fake AI delay (2 seconds)
     setTimeout(() => {
+
+        let score = 0;
         let analysisResult = "";
 
+        // Backend detection
         if (fileName.includes("python") || fileName.includes("backend")) {
-            analysisResult = 
+
+            score = 78;
+
+            analysisResult =
+            "Readiness Score: " + score + "%\n\n" +
             "Recommended Track: Backend Developer\n\n" +
-            "Skill Gaps:\n- DevOps\n- Docker\n- Advanced AWS\n\n" +
-            "Suggested Certification:\nAWS Developer Associate";
-        } 
-        else if (fileName.includes("data") || fileName.includes("sql")) {
-            analysisResult = 
-            "Recommended Track: Data Analyst\n\n" +
-            "Skill Gaps:\n- Machine Learning\n- Power BI\n- Advanced SQL\n\n" +
-            "Suggested Certification:\nAWS Data Analytics Specialty";
-        } 
-        else if (fileName.includes("react") || fileName.includes("frontend")) {
-            analysisResult = 
-            "Recommended Track: Frontend Developer\n\n" +
-            "Skill Gaps:\n- TypeScript\n- Performance Optimization\n- AWS Amplify\n\n" +
-            "Suggested Certification:\nAWS Cloud Practitioner";
-        } 
-        else {
-            analysisResult = 
-            "Recommended Track: Cloud Support Engineer\n\n" +
-            "Skill Gaps:\n- Linux\n- Networking\n- AWS Core Services\n\n" +
-            "Suggested Certification:\nAWS Solutions Architect Associate";
+            "Skill Gaps:\n" +
+            "- DevOps\n" +
+            "- Docker\n" +
+            "- Advanced AWS\n\n" +
+            "Suggested Certification:\n" +
+            "AWS Developer Associate";
         }
 
+        // Data detection
+        else if (fileName.includes("data") || fileName.includes("sql")) {
+
+            score = 72;
+
+            analysisResult =
+            "Readiness Score: " + score + "%\n\n" +
+            "Recommended Track: Data Analyst\n\n" +
+            "Skill Gaps:\n" +
+            "- Machine Learning\n" +
+            "- Power BI\n" +
+            "- Advanced SQL\n\n" +
+            "Suggested Certification:\n" +
+            "AWS Data Analytics Specialty";
+        }
+
+        // Frontend detection
+        else if (fileName.includes("react") || fileName.includes("frontend")) {
+
+            score = 75;
+
+            analysisResult =
+            "Readiness Score: " + score + "%\n\n" +
+            "Recommended Track: Frontend Developer\n\n" +
+            "Skill Gaps:\n" +
+            "- TypeScript\n" +
+            "- Performance Optimization\n" +
+            "- AWS Amplify\n\n" +
+            "Suggested Certification:\n" +
+            "AWS Cloud Practitioner";
+        }
+
+        // Default case
+        else {
+
+            score = 65;
+
+            analysisResult =
+            "Readiness Score: " + score + "%\n\n" +
+            "Recommended Track: Cloud Support Engineer\n\n" +
+            "Skill Gaps:\n" +
+            "- Linux\n" +
+            "- Networking\n" +
+            "- AWS Core Services\n\n" +
+            "Suggested Certification:\n" +
+            "AWS Solutions Architect Associate";
+        }
+
+        // Display result
         resultText.innerText = analysisResult;
+
+        // Hide loading
         loading.style.display = "none";
+
+        // Show result box
         resultBox.style.display = "block";
 
-    }, 2000);
+    }, 2000); // 2 second delay
+
 }
 </script>
+
+
+
+
+
 
 </body>
 </html>
