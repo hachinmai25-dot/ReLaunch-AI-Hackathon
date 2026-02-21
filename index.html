@@ -63,8 +63,23 @@
 
     <div class="loading" id="loading">Analyzing Resume...</div>
 
-    <div id="result">
-        <pre id="resultText"></pre>
+    <div id="result" style="display:none;">
+
+    <!-- Progress Bar Section -->
+    <h3>Readiness Score</h3>
+
+    <div style="background:#ddd; border-radius:20px; overflow:hidden; height:20px;">
+        <div id="progressBar" 
+             style="height:20px; width:0%; background:#28a745; transition: width 1s;">
+        </div>
+    </div>
+
+    <p id="scoreText"></p>
+
+    <hr>
+
+    <pre id="resultText"></pre>
+
     </div>
 </div>
 <script>
@@ -162,7 +177,18 @@ function analyzeResume() {
         }
 
         // Display result
-        resultText.innerText = analysisResult;
+        // Show score visually
+document.getElementById("progressBar").style.width = score + "%";
+document.getElementById("scoreText").innerText = score + "%";
+
+// Show result text
+resultText.innerText = analysisResult.replace("Readiness Score: " + score + "%\n\n", "");
+
+// Hide loading
+loading.style.display = "none";
+
+// Show result box
+resultBox.style.display = "block";
 
         // Hide loading
         loading.style.display = "none";
