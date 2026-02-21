@@ -1,67 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ReLaunchAI</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #0f172a;
-            color: white;
             text-align: center;
+            background: #f4f6f9;
             padding: 40px;
         }
 
         .container {
-            max-width: 600px;
-            margin: auto;
-            background: #1e293b;
+            background: white;
             padding: 30px;
             border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: auto;
         }
 
         button {
             padding: 10px 20px;
             margin-top: 15px;
             border: none;
-            border-radius: 5px;
-            background-color: #2563eb;
+            background: #007bff;
             color: white;
+            border-radius: 5px;
             cursor: pointer;
         }
 
         button:hover {
-            background-color: #1d4ed8;
+            background: #0056b3;
         }
 
-        .result {
+        #result {
             margin-top: 20px;
             display: none;
             text-align: left;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .loading {
+            margin-top: 15px;
+            display: none;
+            font-weight: bold;
         }
     </style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h1>ReLaunchAI</h1>
-        <p>AI-Powered Workforce Re-entry Platform</p>
+<div class="container">
+    <h1>ReLaunchAI</h1>
+    <p>AI-Powered Workforce Re-entry Platform</p>
 
-        <input type="file" id="resumeUpload">
-        <br>
-        <button onclick="analyzeResume()">Analyze Resume</button>
+    <input type="file" id="resumeUpload">
+    <br>
 
-        <div class="result" id="result" style="display:none;">
-    <pre id="resultText"></pre>
-        </div>
+    <button onclick="analyzeResume()">Analyze Resume</button>
 
+    <div class="loading" id="loading">Analyzing Resume...</div>
 
-    <script>
-        function analyzeResume() {
+    <div id="result">
+        <pre id="resultText"></pre>
+    </div>
+</div>
+
+<script>
+function analyzeResume() {
     const fileInput = document.getElementById("resumeUpload");
     const resultBox = document.getElementById("result");
     const resultText = document.getElementById("resultText");
+    const loading = document.getElementById("loading");
 
     if (!fileInput.files.length) {
         alert("Please upload a resume first.");
@@ -70,21 +82,44 @@
 
     const fileName = fileInput.files[0].name.toLowerCase();
 
-    let analysisResult = "";
+    loading.style.display = "block";
+    resultBox.style.display = "none";
 
-    if (fileName.includes("python") || fileName.includes("backend")) {
-        analysisResult = "Recommended Track: Backend Developer\n\nSkill Gap: DevOps, Docker, Advanced AWS\n\nSuggested Certification: AWS Developer Associate";
-    } 
-    else if (fileName.includes("data") || fileName.includes("sql")) {
-        analysisResult = "Recommended Track: Data Analyst\n\nSkill Gap: Machine Learning, Power BI, Advanced SQL\n\nSuggested Certification: AWS Data Analytics Specialty";
-    } 
-    else if (fileName.includes("react") || fileName.includes("frontend")) {
-        analysisResult = "Recommended Track: Frontend Developer\n\nSkill Gap: Performance Optimization, TypeScript, AWS Amplify\n\nSuggested Certification: AWS Cloud Practitioner";
-    } 
-    else {
-        analysisResult = "Recommended Track: Cloud Support Engineer\n\nSkill Gap: Linux, Networking, AWS Core Services\n\nSuggested Certification: AWS Solutions Architect Associate";
-    }
-    </script>
+    setTimeout(() => {
+        let analysisResult = "";
+
+        if (fileName.includes("python") || fileName.includes("backend")) {
+            analysisResult = 
+            "Recommended Track: Backend Developer\n\n" +
+            "Skill Gaps:\n- DevOps\n- Docker\n- Advanced AWS\n\n" +
+            "Suggested Certification:\nAWS Developer Associate";
+        } 
+        else if (fileName.includes("data") || fileName.includes("sql")) {
+            analysisResult = 
+            "Recommended Track: Data Analyst\n\n" +
+            "Skill Gaps:\n- Machine Learning\n- Power BI\n- Advanced SQL\n\n" +
+            "Suggested Certification:\nAWS Data Analytics Specialty";
+        } 
+        else if (fileName.includes("react") || fileName.includes("frontend")) {
+            analysisResult = 
+            "Recommended Track: Frontend Developer\n\n" +
+            "Skill Gaps:\n- TypeScript\n- Performance Optimization\n- AWS Amplify\n\n" +
+            "Suggested Certification:\nAWS Cloud Practitioner";
+        } 
+        else {
+            analysisResult = 
+            "Recommended Track: Cloud Support Engineer\n\n" +
+            "Skill Gaps:\n- Linux\n- Networking\n- AWS Core Services\n\n" +
+            "Suggested Certification:\nAWS Solutions Architect Associate";
+        }
+
+        resultText.innerText = analysisResult;
+        loading.style.display = "none";
+        resultBox.style.display = "block";
+
+    }, 2000);
+}
+</script>
 
 </body>
 </html>
