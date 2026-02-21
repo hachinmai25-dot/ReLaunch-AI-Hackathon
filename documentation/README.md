@@ -48,7 +48,6 @@ ReLaunchAI offers tangible value to enterprises by:
 - Supporting diversity and inclusion goals  
 - Reducing hiring and onboarding costs  
 - Creating data-driven workforce reintegration programs  
-
 ## Conclusion
 
-ReLaunchAI combines social impact with enterprise scalability. By leveraging AI and cloud technologies, it creates a structured pathway for women to confidently return to tech roles while enabling organizations to strengthen diversity and address evolving talent demands.
+ReLaunchAI combines social impact with enterprise scalability. Built on cloud-native architecture and AI-driven skill assessment, the platform leverages AWS services to ensure secure resume processing, scalable analytics, and real-time readiness scoring. By integrating intelligent assessment with enterprise workforce insights, ReLaunchAI creates a structured, data-driven pathway for women to confidently return to tech roles while enabling organizations to strengthen diversity initiatives and address evolving technology talent demands.
